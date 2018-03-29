@@ -68,9 +68,11 @@ else
   rm -f puppet.dmg
 
   #
-  # sometimes the permissions on /usr/local/lib are wrong
+  # sometimes the permissions on /usr/local/lib/pkgconfig are wrong,
+  # so create it first and fix its permissions
   #
-  [ -d /usr/local/lib ] && chown -R ${user} /usr/local/lib
+  mkdir -p /usr/local/lib/pkgconfig
+  chown -R ${user}:admin /usr/local/lib
 
   #
   # replace production environment dir with link to the puppet subdir here
