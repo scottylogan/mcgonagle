@@ -21,3 +21,11 @@ sudo rm -rf opt/puppetlabs private/etc/puppetlabs
 
 sudo pkgutil --forget com.puppetlabs.puppet-agent
 
+BREW_CACHE=$(brew --cache)
+
+#
+# uninstall homebrew
+#
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
+
+echo You should remove the ${BREW_CACHE} directory
