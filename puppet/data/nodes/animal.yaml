@@ -1,8 +1,6 @@
 # configuration for animal (Scotty's Laptop)
 taps:
-  - homebrew/boneyard
   - homebrew/core
-  - homebrew/completions
   - homebrew/services
   - caskroom/cask
   - caskroom/drivers

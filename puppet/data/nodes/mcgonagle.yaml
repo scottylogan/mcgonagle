@@ -1,7 +1,6 @@
-# Configuration for the ET Macbook Air
+# Configuration for the test system (mcgonagle)
 taps:
   - homebrew/core
-  - homebrew/completions
   - caskroom/cask
   - railwaycat/emacsmacport
 brews:
