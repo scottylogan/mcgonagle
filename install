@@ -1,6 +1,6 @@
 #! /bin/bash
 
-puppet_version=latest
+puppet_version=5.5.0-1
 
 HERE=`cd $(dirname $0); pwd -P`
 cd ${HERE}
@@ -52,7 +52,7 @@ machine_hw=$(uname -m)
 
 if [ $mode == download ]; then
 
-  DMG_URL=https://downloads.puppetlabs.com/mac/${major_version}/PC1/${machine_hw}/puppet-agent-${puppet_version}.dmg
+  DMG_URL=https://downloads.puppetlabs.com/mac/puppet5/${major_version}/${machine_hw}/puppet-agent-${puppet_version}.osx${major_version}.dmg
 
   curl -o puppet.dmg ${DMG_URL}
 
@@ -63,17 +63,9 @@ if [ $mode == download ]; then
 else
 
   volume=$(hdiutil mount ${HERE}/puppet.dmg | awk '/\/Volumes\/puppet/ {print $3}')
-
-  installer -pkg ${volume}/puppet-agent-*.pkg -target /
-
+  installer -pkg ${volume}/puppet-agent-*-installer.pkg -target /
   hdiutil unmount ${volume}
-
   rm -f puppet.dmg
-
-  #
-  # Puppet 4.x installs a v3 hiera.yaml, for which it later issues warnings
-  #
-  rm -f /etc/puppetlabs/puppet/hiera.yaml
 
   #
   # sometimes the permissions on /usr/local/lib are wrong
@@ -101,8 +93,18 @@ else
 
   cd puppet 
 
-  sed -i.bak s/DEFAULT_USER/${user}/ data/common.yaml
-  rm -f data/common.yaml.bak
+  #
+  # homebrew user setting
+  #
+
+  cat >data/user.yaml <<USERYAML
+# Homebrew user settings
+# *** automatically generated -- do not edit ***
+---
+homebrew::user: ${user}
+homebrew::group: admin
+homebrew::multiuser: true
+USERYAML
   
   #
   # run librarian-puppet to install initial modules
