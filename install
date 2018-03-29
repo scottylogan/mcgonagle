@@ -69,6 +69,16 @@ else
   rm -f puppet.dmg
 
   #
+  # Puppet 4.x installs a v3 hiera.yaml, for which it later issues warnings
+  #
+  rm -f /etc/puppetlabs/puppet/hiera.yaml
+
+  #
+  # sometimes the permissions on /usr/local/lib are wrong
+  #
+  [ -d /usr/local/lib ] && chown -R ${user} /usr/local/lib
+
+  #
   # replace production environment dir with link to the puppet subdir here
   #
   ENV_DIR=/etc/puppetlabs/code/environments/
@@ -76,22 +86,21 @@ else
   ln -s ${HERE}/puppet ${ENV_DIR}/production
 
   #
-  # install librarian-puppet and add /opt/puppetlabs/puppet/bin to PATH
+  # install librarian-puppet
   #
   PUPPET_BIN=/opt/puppetlabs/puppet/bin
-  ${PUPPET_BIN}/gem install librarian-puppet
+  ${PUPPET_BIN}/gem install -N librarian-puppet
   grep -q ${PUPPET_BIN} /etc/paths.d/puppet-agent || echo ${PUPPET_BIN} >> /etc/paths.d/puppet-agent
 
   #
   # add the puppet dirs to PATH
   #
-  cat /etc/paths.d/puppet-agent | while read dir; do
-    PATH=$PATH:$d
-  done
+  PATH=${PATH}:/opt/puppetlabs/bin:/opt/puppetlabs/puppet/bin
 
   cd puppet 
 
   sed -i.bak s/DEFAULT_USER/${user}/ data/common.yaml
+  rm -f data/common.yaml.bak
   
   #
   # run librarian-puppet to install initial modules
@@ -102,6 +111,7 @@ else
 
   ./apply
 
+  brew doctor
 fi
 
 
