@@ -7,7 +7,7 @@ cd ${HERE}
 
 mode=download
 
-[ "${1}" -eq download ] && shift
+[ "${1}" == download ] && shift
 
 if [ $# -eq 0 ]; then
 
@@ -91,7 +91,7 @@ else
 
   cd puppet 
 
-  sed -i s/DEFAULT_USER/${user}/ data/common.yaml
+  sed -i.bak s/DEFAULT_USER/${user}/ data/common.yaml
   
   #
   # run librarian-puppet to install initial modules
