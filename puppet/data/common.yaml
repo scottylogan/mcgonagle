@@ -1,0 +1,28 @@
+# generic defaults
+---
+taps:
+  - homebrew/core
+  - caskroom/cask
+casks:
+  - gpg-suite
+  - iterm2
+brews:
+  - curl
+  - findutils
+  - git
+  - git-crypt
+  - gnu-tar
+  - gpg-agent
+  - hub
+  - jq
+  - wget
+  - xz
+  - zlib
+homebrew::user: vagrant
+lookup_options:
+  taps:
+    merge: deep
+  casks:
+    merge: deep
+  brews:
+    merge: deep

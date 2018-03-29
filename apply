@@ -1,0 +1,16 @@
+#! /bin/bash
+
+PUPPET_ENV=production
+PUPPET_ENVDIR=/etc/puppetlabs/code/environments/${PUPPET_ENV}
+
+[ $(id -u) -ne 0 ] && {
+  echo Re-running with sudo >&2
+  exec sudo $0 $*
+}
+
+puppet apply --verbose \
+             --detailed-exitcodes \
+             --environment=${PUPPET_ENV} \
+             --modulepath=${PUPPET_ENVDIR}/modules \
+             ${PUPPET_ENVDIR}/manifests/site.pp
+

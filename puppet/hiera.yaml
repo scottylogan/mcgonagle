@@ -1,0 +1,14 @@
+---
+version: 5
+
+defaults:
+  datadir: data
+  data_hash: yaml_data
+
+hierarchy:
+  - name: macOS X Major Version
+    path: "macosx/%{macosx_productversion_major}.yaml"
+  - name: Hostname
+    path: "nodes/%{hostname}.yaml"
+  - name: Common
+    path: common.yaml

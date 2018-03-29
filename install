@@ -1,0 +1,107 @@
+#! /bin/bash
+
+puppet_version=latest
+
+HERE=`cd $(dirname $0); pwd -P`
+cd ${HERE}
+
+mode=download
+
+[ "${1}" -eq download ] && shift
+
+if [ $# -eq 0 ]; then
+
+  [ $(id -u) -ge 500 ] || {
+    echo Please run as the primary user of this system, not root >&2
+    exit 1
+  }
+
+  type -p sw_vers >/dev/null 2>&1 || {
+    echo "Failed to find sw_vers - are you sure this is a Mac?" >&2
+    exit 1
+  }
+
+  sw_vers -productName | grep -q '^Mac OS X$' || {
+    echo "This is not a Mac" >&2
+    exit 1
+  }
+
+elif [ $# -eq 2 ]; then
+
+  [ "${1}" == install ] || {
+    echo Unknown mode: $1 >&2
+    exit 1
+  }
+
+  mode=$1
+  user=$2
+
+  [ $(id -u) -eq 0 ] || {
+    echo Sudo failed, please try again >&2
+    exit 1
+  }
+
+else
+  echo Usage: $(basename $0) >&2
+  exit 1
+fi
+
+product_version=$(sw_vers -productVersion)
+major_version=${product_version%.*}
+machine_hw=$(uname -m)
+
+if [ $mode == download ]; then
+
+  DMG_URL=https://downloads.puppetlabs.com/mac/${major_version}/PC1/${machine_hw}/puppet-agent-${puppet_version}.dmg
+
+  curl -o puppet.dmg ${DMG_URL}
+
+  sudo $0 install $(id -un)
+
+else
+
+  volume=$(hdiutil mount ${HERE}/puppet.dmg | awk '/\/Volumes\/puppet/ {print $3}')
+
+  installer -pkg ${volume}/puppet-agent-*.pkg -target /
+
+  hdiutil unmount ${volume}
+
+  rm -f puppet.dmg
+
+  #
+  # replace production environment dir with link to the puppet subdir here
+  #
+  ENV_DIR=/etc/puppetlabs/code/environments/
+  rm -rf ${ENV_DIR}/production
+  ln -s ${HERE}/puppet ${ENV_DIR}/production
+
+  #
+  # install librarian-puppet and add /opt/puppetlabs/puppet/bin to PATH
+  #
+  PUPPET_BIN=/opt/puppetlabs/puppet/bin
+  ${PUPPET_BIN}/gem install librarian-puppet
+  grep -q ${PUPPET_BIN} /etc/paths.d/puppet-agent || echo ${PUPPET_BIN} >> /etc/paths.d/puppet-agent
+
+  #
+  # add the puppet dirs to PATH
+  #
+  cat /etc/paths.d/puppet-agent | while read dir; do
+    PATH=$PATH:$d
+  done
+
+  cd puppet 
+
+  sed -i s/DEFAULT_USER/${user}/ data/common.yaml
+  
+  #
+  # run librarian-puppet to install initial modules
+  #
+  librarian-puppet install
+
+  cd ..
+
+  ./apply
+
+fi
+
+
