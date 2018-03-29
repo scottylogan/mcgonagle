@@ -58,6 +58,8 @@ if [ $mode == download ]; then
 
   sudo $0 install $(id -un)
 
+  brew doctor
+
 else
 
   volume=$(hdiutil mount ${HERE}/puppet.dmg | awk '/\/Volumes\/puppet/ {print $3}')
@@ -111,7 +113,6 @@ else
 
   ./apply
 
-  brew doctor
 fi
 
 
