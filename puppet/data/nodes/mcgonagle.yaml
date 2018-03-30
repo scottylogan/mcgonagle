@@ -63,7 +63,7 @@ casks:
   - emacs
   - firefox
   - google-chrome-canary
-  - java
+  - java8
   - jce-unlimited-strength-policy
   - marked
   - minikube
