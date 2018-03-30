@@ -14,9 +14,10 @@ Package { provider => brew }
 # install taps before everything else
 Package <| provider == tap |> -> Package <| provider == brew |>
 Package <| provider == tap |> -> Package <| provider == brewcask |>
+Package <| provider == tap |> -> Package <| provider == homebrew |>
 
-# install brews before casks
-Package <| provider == brew |> -> Package <| provider == brewcask |>
+# install casks before brews
+Package <| provider == brewcask |> -> Package <| provider == brew |>
 
 $taps  = lookup('taps', Array[String], 'deep')
 $brews = lookup('brews', Array[String], 'deep')
