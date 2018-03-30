@@ -86,7 +86,12 @@ else
   #
   PUPPET_BIN=/opt/puppetlabs/puppet/bin
   ${PUPPET_BIN}/gem install -N librarian-puppet
-  grep -q ${PUPPET_BIN} /etc/paths.d/puppet-agent || echo ${PUPPET_BIN} >> /etc/paths.d/puppet-agent
+
+  #
+  # Add extra paths
+  #
+  echo /usr/local/bin   > /etc/paths.d/mcgonagle
+  echo /usr/local/sbin >> /etc/paths.d/mcgonagle
 
   #
   # add the puppet dirs to PATH
