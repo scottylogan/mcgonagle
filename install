@@ -113,11 +113,6 @@ homebrew::group: admin
 homebrew::multiuser: true
 USERYAML
   
-  #
-  # run librarian-puppet to install initial modules
-  #
-  librarian-puppet install
-
   cd ..
 
   ./apply

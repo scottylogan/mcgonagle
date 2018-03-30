@@ -8,6 +8,16 @@ PUPPET_ENVDIR=/etc/puppetlabs/code/environments/${PUPPET_ENV}
   exec sudo $0 $*
 }
 
+PATH=${PATH}:/opt/puppetlabs/puppet/bin
+
+cd ${PUPPET_ENVDIR}
+
+#
+# run librarian-puppet to install initial modules
+#
+
+librarian-puppet update
+
 puppet apply --verbose \
              --detailed-exitcodes \
              --environment=${PUPPET_ENV} \
