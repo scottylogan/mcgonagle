@@ -65,7 +65,6 @@ casks:
   - firefox
   - google-chrome-canary
   - java8
-  - jce-unlimited-strength-policy
   - marked
   - minikube
   - postman
