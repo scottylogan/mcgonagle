@@ -3,10 +3,12 @@
 taps:
   - homebrew/core
   - caskroom/cask
+  - caskroom/versions
+  - vitorgalvao/tiny-scripts
 casks:
-  - gpg-suite
-  - iterm2
+  - iterm2-beta
 brews:
+  - cask-repair
   - curl
   - findutils
   - git
@@ -15,6 +17,7 @@ brews:
   - gpg-agent
   - hub
   - jq
+  - mas
   - wget
   - xz
   - zlib

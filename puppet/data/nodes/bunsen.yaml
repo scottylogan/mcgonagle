@@ -1,12 +1,19 @@
-# configuration for animal (Scotty's Laptop)
+# configuration for bunsen (Scotty's Laptop)
 taps:
+  - homebrew/core
   - homebrew/services
+  - caskroom/cask
   - caskroom/drivers
+  - caskroom/versions
   - drone/drone
   - railwaycat/emacsmacport
+  - scottylogan/brewhouse
 brews:
+  - vitorgalvao/tiny-scripts/cask-repair
   - autoconf
   - automake
+  - avra
+  - avrdude
   - awscli
   - bash
   - bash-completion
@@ -15,11 +22,14 @@ brews:
   - c-kermit
   - certbot
   - coreutils
+  - curl
   - debianutils
+  - dfu-programmer
+  - dfu-util
   - dirmngr
   - drone
+  - eagle77
   - fontconfig
-  - freeradius-server
   - gawk
   - gdbm
   - gettext
@@ -36,6 +46,7 @@ brews:
   - gzip
   - hicolor-icon-theme
   - kubernetes-cli
+  - lego
   - less
   - libtool
   - logrotate
@@ -51,7 +62,6 @@ brews:
   - nuttcp
   - oath-toolkit
   - openldap
-  - opensc
   - openssh
   - openssl
   - openssl@1.1
@@ -59,44 +69,68 @@ brews:
   - packer-completion
   - pinentry
   - python3
+  - qemu
   - readline
   - redis
-  - remctl
-  - rsyslog
   - ruby
   - s3cmd
   - sqlite
-  - swagger-codegen
   - terraform
+  - unrar
   - unzip
   - vagrant-completion
   - vault
   - xmlsectool
   - yarn
   - ykpers
-  - yubico-piv-tool
 casks:
-  - 1password
+  - arduino-nightly
+  - blu-ray-player-pro
   - charles
-  - docker
+  - crashplan
+  - crosspack-avr
+  - cura-beta
+  - docker-edge
   - dropbox
+  - electron
   - emacs
+  - etcher
+  - fender-fuse
   - firefox
-  - fluid
+  - fritzing
+  - ftdi-vcp-driver
+  - google-chrome
   - google-chrome-canary
-  - ishowu-instant
+  - handbrake
   - java8
+  - inkscape
+  - ishowu-instant
+  - kicad
+  - kicad-extras
+  - logicsniffer
   - marked
   - minikube
   - omnigraffle
+  - opensc
+  - openscad
+  - particle-dev
+  - plex-media-player
   - postman
+  - prolific-pl2303
+  - repetier-host
+  - saleae-logic
   - slack
+  - slic3r
+  - sketchup
+  - synology-photo-station-uploader
+  - synologyassistant
+  - toneprint
+  - unetbootin
+  - ultimaker-cura
   - vagrant
   - virtualbox
   - virtualbox-extension-pack
-  - visual-studio-code
+  - wch-ch34x-usb-serial-driver
+  - wiring
   - xquartz
-  - yubico-authenticator
-  - yubikey-personalization-gui
-  - yubikey-piv-manager
 

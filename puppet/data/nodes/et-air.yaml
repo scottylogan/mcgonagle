@@ -1,8 +1,5 @@
 # Configuration for the ET Macbook Air
 taps:
-  - homebrew/core
-  - caskroom/cask
-  - caskroom/versions
   - railwaycat/emacsmacport
 brews:
   - awscli

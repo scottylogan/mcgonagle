@@ -1,8 +1,5 @@
 # Configuration for the test system (mcgonagle)
 taps:
-  - homebrew/core
-  - caskroom/cask
-  - caskroom/versions
   - railwaycat/emacsmacport
 brews:
   - awscli
