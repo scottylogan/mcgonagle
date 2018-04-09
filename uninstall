@@ -6,25 +6,32 @@ if [ $(id -u) -eq 0 ]; then
 fi
 
 PUPPET_DIR=opt/puppetlabs
-PUPPET_ETC=private
-
-sudo puppet resource service puppet ensure=stopped enable=false
-sudo puppet resource service mcollective ensure=stopped enable=false
-sudo puppet resource service pxp-agent ensure=stopped enable=false
+PUPPET_ETC=private/etc/puppetlabs
+PUPPET=/${PUPPET_DIR}/bin/puppet
 
 cd /
-pkgutil --only-files --files com.puppetlabs.puppet-agent |\
-  egrep -v '^(opt/puppetlabs|private/etc/puppetlabs)' |\
-  sudo xargs rm -f
 
-sudo rm -rf opt/puppetlabs private/etc/puppetlabs
+if [ -d ${PUPPET_DIR} -a -d ${PUPPET_ETC} -a -x ${PUPPET} ]; then
 
-sudo pkgutil --forget com.puppetlabs.puppet-agent
+  for svc in puppet mcollective pxp-agentl; do
+    sudo ${PUPPET} resource service ${svc} ensure=stopped enable=false
+  done
 
-BREW_CACHE=$(brew --cache)
 
-#
-# uninstall homebrew
-#
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
+  pkgutil --only-files --files com.puppetlabs.puppet-agent |\
+    egrep -v "^(${PUPPET_DIR}|${PUPPET_ETC})" |\
+    sudo xargs rm -f
+
+  sudo rm -rf ${PUPPET_DIR} ${PUPPET_ETC}
+
+  sudo pkgutil --forget com.puppetlabs.puppet-agent
+
+fi
+
+if [ -x /usr/local/bin/brew ]; then
+  #
+  # uninstall homebrew
+  #
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
+fi
 
