@@ -1,2 +1,5 @@
 Vagrantfile
 .vagrant/
+.tmp/
+Puppetfile.lock
+puppet/hiera.yaml.pristine
