@@ -8,13 +8,17 @@ PUPPET_ENVDIR=/etc/puppetlabs/code/environments/${PUPPET_ENV}
   exec sudo $0 $*
 }
 
-PATH=${PATH}:/opt/puppetlabs/puppet/bin
+echo $PATH | grep -q /opt/puppetlabs/bin || PATH=${PATH}:/opt/puppetlabs/bin
+echo $PATH | grep -q /opt/puppetlabs/puppet/bin || PATH=${PATH}:/opt/puppetlabs/puppet/bin
 
 cd ${PUPPET_ENVDIR}
 
 #
 # run librarian-puppet to install initial modules
 #
+
+[ ${LANG:-C} == "C" ] && LANG=en_US.UTF-8
+[ ${LC_ALL:-C} == "C" ] && LC_ALL=en_US.UTF-8
 
 librarian-puppet update
 
