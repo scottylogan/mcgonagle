@@ -82,10 +82,10 @@ else
   ln -s ${HERE}/puppet ${ENV_DIR}/production
 
   #
-  # install librarian-puppet
+  # install librarian-puppet and puppet-lint
   #
   PUPPET_BIN=/opt/puppetlabs/puppet/bin
-  ${PUPPET_BIN}/gem install -N librarian-puppet
+  ${PUPPET_BIN}/gem install -N librarian-puppet puppet-lint
 
   #
   # Add extra paths
