@@ -2,8 +2,11 @@
 ---
 taps:
   - homebrew/core
+  - homebrew/services
   - caskroom/cask
+  - caskroom/drivers
   - caskroom/versions
+  - railwaycat/emacsmacport
   - vitorgalvao/tiny-scripts
 casks:
   - iterm2-beta
@@ -21,7 +24,6 @@ brews:
   - wget
   - xz
   - zlib
-homebrew::user: DEFAULT_USER
 lookup_options:
   taps:
     merge: deep
