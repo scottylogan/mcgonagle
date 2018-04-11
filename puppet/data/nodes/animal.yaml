@@ -76,7 +76,6 @@ brews:
   - ykpers
   - yubico-piv-tool
 casks:
-  - 1password
   - charles
   - docker
   - dropbox
@@ -99,4 +98,16 @@ casks:
   - yubico-authenticator
   - yubikey-personalization-gui
   - yubikey-piv-manager
+apps:
+  AppleConfigurator2: 1037126344
+  Xcode: 497799835
+  Keynote: 409183694
+  iMovie: 408981434
+  iPhoto: 408981381
+  1Password: 443987910
+  Tweetbot: 557168941
+  Pages: 409201541
+  Reeder: 880001334
+  GarageBand: 682658836
+  Numbers: 409203825
 

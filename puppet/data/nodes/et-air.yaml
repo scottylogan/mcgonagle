@@ -55,7 +55,6 @@ brews:
   - xmlsectool
   - yarn
 casks:
-  - 1password
   - docker
   - dropbox
   - emacs
@@ -67,4 +66,6 @@ casks:
   - postman
   - slack
   - visual-studio-code
-
+apps:
+  Keynote: 409183694
+  1Password: 443987910

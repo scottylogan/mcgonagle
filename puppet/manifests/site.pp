@@ -57,10 +57,10 @@ Package <| provider == tap |> -> Package <| provider == homebrew |>
 # install casks before brews
 #Package <| provider == brewcask |> -> Package <| provider == brew |>
 
-$taps  = lookup('taps', Array[String], 'deep')
+$taps  = lookup('taps',  Array[String], 'deep')
 $brews = lookup('brews', Array[String], 'deep')
 $casks = lookup('casks', Array[String], 'deep')
-
+$apps  = lookup('apps',  Hash[String,Integer], 'deep')
 
 package { $taps:
   ensure   => present,
@@ -74,6 +74,13 @@ package { $brews:
 package { $casks:
   ensure   => present,
   provider => brewcask,
+}
+
+$apps.each |$name, $appId| {
+  package { $name:
+    ensure   => $appId,
+    provider => mas,
+  }
 }
 
 #
