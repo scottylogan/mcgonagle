@@ -26,5 +26,6 @@ puppet apply --verbose \
              --detailed-exitcodes \
              --environment=${PUPPET_ENV} \
              --modulepath=${PUPPET_ENVDIR}/modules \
+             $* \
              ${PUPPET_ENVDIR}/manifests/site.pp
 
