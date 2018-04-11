@@ -3,27 +3,28 @@
 
 forge "https://forgeapi.puppetlabs.com"
 
-# Shortcut for a module from GitHub's boxen organization
-def github(name, *args)
-  options ||= if args.last.is_a? Hash
-    args.last
-  else
-    {}
-  end
-
-  if path = options.delete(:path)
-    mod name, :path => path
-  else
-    version = args.first
-    mod name, version, :github_tarball => options[:repo]
-  end
+# shortcut for a module from a generic git repo
+def gitrepo(repo, name, ref = 'master')
+  mod name.split('/').join('-'),
+      :git => "https://#{repo}/#{name}.git",
+      :ref => ref
 end
 
-# Shortcut for a module under development
+# shortcut for a module from GitHub
+def github(name, ref = 'master')
+  gitrepo "github.com", name, ref
+end
+
+# shortcut for a module from code.stanford.edu
+def stanford(name, ref = 'master')
+  gitrepo "code.stanford.edu", name, ref
+end
+
+# shortcut for a module under development
 def dev(name, *args)
   mod "puppet-#{name}", :path => "#{ENV['HOME']}/src/puppet/modules/#{name}"
 end
 
-
+# required modules
 mod 'thekevjames-homebrew', '1.8.0'
-
+mod 'binford2k-mas', '0.0.2'
