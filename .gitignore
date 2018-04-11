@@ -4,3 +4,4 @@ Vagrantfile
 Puppetfile.lock
 puppet/hiera.yaml.pristine
 puppet/data/user.yaml
+.librarian/
