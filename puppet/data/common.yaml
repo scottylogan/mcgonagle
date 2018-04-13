@@ -24,10 +24,14 @@ brews:
   - wget
   - xz
   - zlib
+apps:
+  Keynote: 409183694
 lookup_options:
   taps:
     merge: deep
   casks:
     merge: deep
   brews:
+    merge: deep
+  apps:
     merge: deep
