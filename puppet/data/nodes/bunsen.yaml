@@ -1,4 +1,4 @@
-# configuration for bunsen (Scotty's Laptop)
+# configuration for bunsen (Scotty's desktop)
 taps:
   - homebrew/core
   - homebrew/services
