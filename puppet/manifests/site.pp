@@ -31,6 +31,7 @@ $local_folders = [
   '/usr/local/include',
   '/usr/local/lib',
   '/usr/local/opt',
+  '/usr/local/sbin',
   '/usr/local/share',
   '/usr/local/var',
 ]

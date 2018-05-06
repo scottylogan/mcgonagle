@@ -1,6 +1,4 @@
 # Configuration for the ET Macbook Air
-taps:
-  - railwaycat/emacsmacport
 brews:
   - awscli
   - bash
@@ -12,7 +10,6 @@ brews:
   - dirmngr
   - gawk
   - gdbm
-  - git-secrets
   - glib
   - gnupg2
   - gzip

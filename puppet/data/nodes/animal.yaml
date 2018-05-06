@@ -1,9 +1,6 @@
 # configuration for animal (Scotty's Laptop)
 taps:
-  - homebrew/services
-  - caskroom/drivers
   - drone/drone
-  - railwaycat/emacsmacport
 brews:
   - autoconf
   - automake
@@ -23,7 +20,6 @@ brews:
   - gawk
   - gdbm
   - gettext
-  - git-secrets
   - glib
   - gnupg2
   - go

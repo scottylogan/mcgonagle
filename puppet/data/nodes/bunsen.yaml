@@ -1,12 +1,6 @@
 # configuration for bunsen (Scotty's desktop)
 taps:
-  - homebrew/core
-  - homebrew/services
-  - caskroom/cask
-  - caskroom/drivers
-  - caskroom/versions
   - drone/drone
-  - railwaycat/emacsmacport
   - scottylogan/brewhouse
 brews:
   - vitorgalvao/tiny-scripts/cask-repair
@@ -22,7 +16,6 @@ brews:
   - c-kermit
   - certbot
   - coreutils
-  - curl
   - debianutils
   - dfu-programmer
   - dfu-util
@@ -32,7 +25,6 @@ brews:
   - gawk
   - gdbm
   - gettext
-  - git-secrets
   - glib
   - gnupg2
   - gradle

@@ -11,18 +11,58 @@ taps:
 casks:
   - iterm2-beta
 brews:
+  - awscli
+  - bash
+  - bash-completion
+  - bc
+  - bzip2
   - cask-repair
+  - coreutils
   - curl
+  - dirmngr
   - findutils
+  - gawk
+  - gdbm
   - git
   - git-crypt
+  - git-secrets
+  - glib
   - gnu-tar
+  - gnupg2
   - gpg-agent
+  - gzip
+  - hicolor-icon-theme
   - hub
   - jq
+  - kubernetes-cli
+  - less
+  - libtool
+  - lsof
+  - m4
+  - markdown
   - mas
+  - mysql-utilities
+  - node
+  - node-build
+  - nodenv
+  - nuttcp
+  - oath-toolkit
+  - openssh
+  - openssl
+  - openssl@1.1
+  - pinentry
+  - python3
+  - readline
+  - ruby
+  - s3cmd
+  - sqlite
+  - unzip
+  - vagrant-completion
+  - vault
   - wget
+  - xmlsectool
   - xz
+  - yarn
   - zlib
 apps:
   Keynote: 409183694

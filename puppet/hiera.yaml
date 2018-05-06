@@ -9,8 +9,8 @@ hierarchy:
   - name: Homebrew User Settings
     path: user.yaml
   - name: macOS X Major Version
-    path: "macosx/%{macosx_productversion_major}.yaml"
+    path: "macosx/%{facts.macosx_productversion_major}.yaml"
   - name: Hostname
-    path: "nodes/%{hostname}.yaml"
+    path: "nodes/%{facts.hostname}.yaml"
   - name: Common
     path: common.yaml

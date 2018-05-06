@@ -1,7 +1,5 @@
 # configuration for piggy (old macbook pro)
 taps:
-  - homebrew/services
-  - caskroom/drivers
   - scottylogan/brewhouse
 brews:
   - vitorgalvao/tiny-scripts/cask-repair
@@ -16,18 +14,14 @@ brews:
   - bzip2
   - c-kermit
   - coreutils
-  - curl
   - debianutils
   - dfu-programmer
   - dfu-util
   - dirmngr
-  - drone
-  - eagle77
   - fontconfig
   - gawk
   - gdbm
   - gettext
-  - git-secrets
   - glib
   - gnupg2
   - gzip
@@ -67,6 +61,7 @@ casks:
   - docker-edge
   - dropbox
   - emacs
+  - eagle77
   - etcher
   - fritzing
   - ftdi-vcp-driver
