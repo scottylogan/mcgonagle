@@ -98,6 +98,7 @@ casks:
   - logicsniffer
   - marked
   - minikube
+  - nscope
   - omnigraffle
   - opensc
   - openscad
