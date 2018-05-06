@@ -28,7 +28,6 @@ brews:
   - dfu-util
   - dirmngr
   - drone
-  - eagle77
   - fontconfig
   - gawk
   - gdbm
@@ -36,22 +35,13 @@ brews:
   - git-secrets
   - glib
   - gnupg2
-  - go
-  - gobject-introspection
-  - godep
-  - goenv
-  - govendor
-  - gox
   - gradle
   - gzip
-  - hicolor-icon-theme
   - kubernetes-cli
   - lego
   - less
   - libtool
-  - logrotate
   - lsof
-  - m4
   - markdown
   - maven
   - mysql
@@ -81,10 +71,8 @@ brews:
   - vagrant-completion
   - vault
   - xmlsectool
-  - yarn
-  - ykpers
 casks:
-  - arduino-nightly
+  - arduino
   - blu-ray-player-pro
   - charles
   - crashplan
@@ -92,6 +80,7 @@ casks:
   - cura-beta
   - docker-edge
   - dropbox
+  - eagle77
   - electron
   - emacs
   - etcher
@@ -104,12 +93,12 @@ casks:
   - handbrake
   - java8
   - inkscape
-  - ishowu-instant
   - kicad
   - kicad-extras
   - logicsniffer
   - marked
   - minikube
+  - nscope
   - omnigraffle
   - opensc
   - openscad
