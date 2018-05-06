@@ -54,7 +54,7 @@ brews:
   - xmlsectool
   - yarn
 casks:
-  - arduino-nightly
+  - arduino
   - crashplan
   - crosspack-avr
   - cura-beta
