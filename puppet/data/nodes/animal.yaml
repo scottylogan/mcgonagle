@@ -76,13 +76,13 @@ casks:
   - docker
   - dropbox
   - emacs
+  - etcher
   - firefox
   - fluid
   - google-chrome-canary
   - ishowu-instant
   - java8
   - marked
-  - minikube
   - omnigraffle
   - postman
   - slack
