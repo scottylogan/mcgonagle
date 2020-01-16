@@ -1,5 +1,7 @@
-# Configuration for the ET Macbook Air
+# Configuration for the Macbook Air (vegetable)
 brews:
+  - autoconf
+  - automake
   - awscli
   - bash
   - bash-completion
@@ -10,8 +12,15 @@ brews:
   - dirmngr
   - gawk
   - gdbm
+  - gettext
   - glib
   - gnupg2
+  - go
+  - gobject-introspection
+  - godep
+  - govendor
+  - gox
+  - gradle
   - gzip
   - hicolor-icon-theme
   - kubernetes-cli
@@ -39,8 +48,7 @@ brews:
   - pinentry
   - python3
   - readline
-  - remctl
-  - rsyslog
+  - redis
   - ruby
   - s3cmd
   - sqlite
@@ -52,17 +60,20 @@ brews:
   - xmlsectool
   - yarn
 casks:
+  - charles
   - docker
   - dropbox
   - emacs
   - firefox
-  - google-chrome-canary
+  - google-chrome
   - java8
   - marked
   - minikube
+  - omnigraffle
   - postman
   - slack
   - visual-studio-code
+  - xquartz
 apps:
   Keynote: 409183694
   1Password: 443987910
