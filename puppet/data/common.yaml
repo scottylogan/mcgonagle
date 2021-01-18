@@ -19,7 +19,6 @@ brews:
   - cask-repair
   - coreutils
   - curl
-  - dirmngr
   - findutils
   - gawk
   - gdbm
@@ -29,7 +28,6 @@ brews:
   - glib
   - gnu-tar
   - gnupg2
-  - gpg-agent
   - gzip
   - hicolor-icon-theme
   - hub
@@ -65,7 +63,7 @@ brews:
   - yarn
   - zlib
 apps:
-  Keynote: 409183694
+#  Keynote: 409183694
 lookup_options:
   taps:
     merge: deep
