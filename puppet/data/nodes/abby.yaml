@@ -1,0 +1,39 @@
+# configuration for abby (2012 Mac Mini)
+taps:
+  - homebrew/core
+  - homebrew/services
+  - caskroom/cask
+  - caskroom/drivers
+  - caskroom/versions
+  - drone/drone
+  - railwaycat/emacsmacport
+  - scottylogan/brewhouse
+brews:
+  - bash
+  - bash-completion
+  - bc
+  - bzip2
+  - coreutils
+  - curl
+  - fontconfig
+  - gawk
+  - gettext
+  - gnupg2
+  - gzip
+  - less
+  - libtool
+  - lsof
+  - openssh
+  - openssl@1.1
+  - pinentry
+  - python3
+  - readline
+  - unzip
+casks:
+  - arduino
+  - dropbox
+  - emacs
+  - google-chrome
+  - handbrake
+  - plex-media-player
+  - slack
