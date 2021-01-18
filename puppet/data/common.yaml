@@ -62,8 +62,6 @@ brews:
   - xz
   - yarn
   - zlib
-apps:
-#  Keynote: 409183694
 lookup_options:
   taps:
     merge: deep
