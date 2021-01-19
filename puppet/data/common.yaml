@@ -3,9 +3,9 @@
 taps:
   - homebrew/core
   - homebrew/services
-  - caskroom/cask
-  - caskroom/drivers
-  - caskroom/versions
+  - homebrew/cask
+  - homebrew/cask-drivers
+  - homebrew/cask-versions
   - railwaycat/emacsmacport
   - vitorgalvao/tiny-scripts
 casks:
